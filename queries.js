@@ -27,7 +27,7 @@ module.exports = {
 
 //funcão responsável por obter todos os comentários em ordem decrescente
 function getAllComments(req, res, next) {
-	db.any('select * from tbl_comentario order by datahora desc')
+	db.any('select * from tbl_comentario order by datahora asc')
 	.then(function (data) {
 		res.status(200)
 		.json({
