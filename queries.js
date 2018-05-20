@@ -61,7 +61,7 @@ function getSingleComment(req, res, next) {
 //funcão responsável por criar uma comentário
 function createComment(req, res, next) {
 	db.none('insert into tbl_comentario(id, comentario, datahora, usuario)' +
-	' values(default, ${comentario}, current_timestamp, ${usuario})',
+	' values(default, ${comentario}, current_timestamp at time zone \'America/Sao_Paulo\', ${usuario})',
 	req.body)
 	.then(function () {
 		res.status(200)
